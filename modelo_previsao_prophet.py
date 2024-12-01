@@ -1,11 +1,13 @@
 import requests
 import pandas as pd
 import numpy as np
+import prophet
+import sklearn
+import plotly.graph_objects as go
 from prophet import Prophet
 from prophet.diagnostics import cross_validation, performance_metrics
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from math import sqrt
-import plotly.graph_objects as go
 
 # Função para coletar dados da API
 def fetch_brent_data(api_key, start_date, end_date):
