@@ -1,9 +1,15 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import plotly.express as px
+import plotly.graph_objects as go
 import requests
 import pandas as pd
-import plotly.express as px
 import numpy as np
+from datetime import date, timedelta
+from prophet import Prophet
+from prophet.diagnostics import cross_validation, performance_metrics
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+from math import sqrt
 
 # SideBar e Filtros
 st.sidebar.title('Filtros')
