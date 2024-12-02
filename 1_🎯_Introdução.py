@@ -16,7 +16,7 @@ if todos_anos:
 else:
     ano = st.sidebar.slider('Ano', 1987, 2024)
 
-st.sidebar.image("https://i.scdn.co/image/ab6765630000ba8a9543f1ed639f9830d951f154", caption="Sunrise by the mountains")
+st.sidebar.image("https://drive.google.com/drive/folders/1ZUT_ZhkFkeATqeClRFdGw72ZvWvmEy18", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59")
 
 # Página
 st.header('Pós-Tech FIAP Data Analytics')
