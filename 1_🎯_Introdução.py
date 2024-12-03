@@ -15,14 +15,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 #Configuração gerais das páginas
 st.set_page_config(page_title='Pós-Tech FIAP | Tech Challenge Fase 4 | Grupo 59', page_icon=":chart_with_upwards_trend:", layout= 'wide')
 
-# SideBar e Filtros
-st.sidebar.title('Filtros')
-todos_anos = st.sidebar.checkbox('Dados de todo o período', value = True)
-if todos_anos:
-    ano = ''
-else:
-    ano = st.sidebar.slider('Ano', 1987, 2024)
-
+# SideBar
+st.sidebar.title('Grupo')
+st.sidebar.write('''Os :blue[__integrantes__] e suas respectivas :blue[__RM__]:''')
+st.sidebar.write('''- Cheila Betina Schilling dos Santos: RM 355693
+- Felipe David Abdala: RM 355751
+- Lucas Coimbra Rizzo: RM354448''')
 st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59")
 
 # Página
@@ -32,7 +30,9 @@ st.markdown(' Pós-Tech FIAP Data Analytics | :blue[Tech-challenge Fase 4] | Gru
 #st.caption("O mercado de petróleo e seus derivados traz consigo voluptuosas cifras e com enfoque em sua :blue[_produção_] e :blue[_comercialização_] que o presente trabalho se debruça.")
 
 ## Visualização no Streamlit
-aba1, aba2, aba3 = st.tabs(['Introdução','Objetivos', 'Grupo - Integrantes'])
+# Abas ('Tabs')
+aba1, aba2 = st.tabs(['Introdução','Objetivos'])
+# aba1
 # aba1
 with aba1:
 	coluna1, coluna2 = st.columns(2)
@@ -50,9 +50,3 @@ with aba1:
 
 with aba2:
 	st.markdown("O objetivo do presente estudo é de analisar a flutuação do preço do petróleo no intervalo temporal de 1987 a 2024 e trazer um modelo de previsão para 90 dias.")
-
-with aba3:
-	st.markdown("Os __integrantes__ e suas respectivas __RM__:")
-	st.markdown("- Cheila Betina Schilling dos Santos: RM 355693")
-	st.markdown("- Felipe David Abdala: RM 355751")
-	st.markdown("- Lucas Coimbra Rizzo: RM354448")
