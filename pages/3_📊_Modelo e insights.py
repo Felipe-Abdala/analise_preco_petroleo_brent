@@ -15,11 +15,11 @@ from math import sqrt
 st.header('Modelo interativo e resultados')
 
 # SideBar e Filtros
-st.sidebar.title('Filtros')
-data_minima = date(1987, 5, 25)
-data_maxima_modelo = date(2024, 11, 30)
-data_maxima_previsao = date(2025, 2, 28)
-st.sidebar.date_input("Escolha a :blue[__data__] para treinar o modelo:",data_maxima_modelo, min_value=data_maxima_modelo, max_value=data_maxima_previsao, format="DD/MM/YYYY")
+#st.sidebar.title('Filtros')
+#data_minima = date(1987, 5, 25)
+#data_maxima_modelo = date(2024, 11, 30)
+#data_maxima_previsao = date(2025, 2, 28)
+#st.sidebar.date_input("Escolha a :blue[__data__] para treinar o modelo:",data_maxima_modelo, min_value=data_maxima_modelo, max_value=data_maxima_previsao, format="DD/MM/YYYY")
 
 ## Visualização no Streamlit
 # Abas ('Tabs')
@@ -33,7 +33,7 @@ with aba1:
     st.write("")
     st.write("")
 
-    #Parâmetro
+    #Parâmetro botão
     input_par_num = st.number_input("Selecione a quantidade de dias que deseje que o modelo preveja", value=None, placeholder="Digite um número inteiro entre 1 e 90...", min_value=1, max_value=90, step = 1)
     #botao_deploy = st.button("Deploy")
     # Add a predict button
