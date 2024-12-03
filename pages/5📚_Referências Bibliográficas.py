@@ -35,7 +35,7 @@ st.info('''__Fonte de Dados: API da EIA (Energy Information Administration)__'''
 st.write('''- Disponível em: https://www.eia.gov/opendata/ | Data de acesso: 22/11/2024''')
 
 
-st.info('''__Fonte de imagens:__''')
+st.info('''__Fonte de imagens__''')
 st.write('''-  Disponível em: https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png | Data de acesso: 22/11/2024
 - Disponível em: https://media.licdn.com/dms/image/v2/D4D12AQHhGT2iS1QlLQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1670405199782?e=2147483647&v=beta&t=2Um0S28DuWFwpyxV-ybrjCURUJu2yueWKdR9HSuiuO0 | Data de acesso: 22/11/2024
 - Disponível em: https://images.pexels.com/photos/1716008/pexels-photo-1716008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 | Data de acesso: 22/11/2024''')
