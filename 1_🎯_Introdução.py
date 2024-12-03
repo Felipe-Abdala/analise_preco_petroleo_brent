@@ -34,11 +34,12 @@ aba1, aba2 = st.tabs(['Introdução','Objetivos'])
 with aba1:
 	coluna1, coluna2 = st.columns(2)
 	with coluna1:
-		st.write(''' Desde o advento da moderna indústria petrolífera no século XIX¹, o petróleo é uma das :blue[commodities] com grandes impactos políticos e econômicos desde então.''')
-		st.write(''' Com o desenvolvimento do mercado internacional do petróleo, convencionou-se a organizá-lo a partir da cotação de 2 de seus tipos, sendo eles:
-		   - Brent; e
-		   - WIT.''')
-#Dessa forma, o presente estudo traz insights das relações entre o __problemas geopolíticos__, __impactos econômicos__, o __comportamento do preço do barril do petróleo Brent__ e qual a __previsão de fechamento do preço do petróleo__, a partir do modelo de Machine Learning desenvolvido no presente artigo.''')
+		st.write('''#### O tema do presente estudo é o petróleo:''')
+		st.write(''' Desde o advento da moderna indústria petrolífera no século XIX, o petróleo é uma das :blue[commodities] com grandes impactos políticos e econômicos desde então.''')
+		st.write(''' Com o desenvolvimento do mercado internacional do petróleo, convencionou-se a organizá-lo a partir da :blue[cotação de 2 de seus tipos], sendo eles:
+- Brent;
+- WIT.''')
+		st.write(''' O petróleo tem em sua formação de preço a influência de marcos :blue[geopolíticos, econômicos e socio-ambientais]. Portanto, sobre esses fatores que o presente estudo se volta para trazer no mínimo 4 insights sobre essas relações entre preço e eventos.''')
 #e o WTI. O West Texas Intermediate (WTI) é a cotação utilizada sobretudo no mercado dos EUA, em especial para as transações envolvendo os estados do Texas, Dakota do Norte e Novo México. Enquanto que o Brent é tipo de petróleo que rege cerca de 60% do mercado internacional dessa commodity.
 
 	with coluna2:
@@ -46,7 +47,7 @@ with aba1:
 
 
 with aba2:
-	st.write('''#### O objetivo do presente estudo é de:''')
+	st.write('''#### O objetivo dessa análise é de:''')
 	coluna1, coluna2 = st.columns(2)
 	with coluna1:
 		st.write('''- Analisar a flutuação do preço do petróleo no intervalo temporal de 1987 a 2024 e trazer um modelo de previsão para 90 dias.
