@@ -32,8 +32,7 @@ aba1, aba2 = st.tabs(['Metodologia Machine Learning', 'Cenários Macroeconômico
 with aba1:
     st.markdown('#### 1. Coleta de Dados')
     st.markdown(':blue[__Fonte dos Dados__]: Os dados foram extraídos da API da U.S. Energy Information Administration (EIA), que fornece informações detalhadas sobre preços de petróleo, incluindo o Brent.')
-    st.markdown(':blue[__Configuração da Requisiçãos__]: Foi usada a biblioteca requests para enviar solicitações HTTP.')
-    st.markdown('Os parâmetros da requisição incluem:')
+    st.markdown(':blue[__Configuração da Requisiçãos__]: Foi usada a biblioteca requests para enviar solicitações HTTP. Os parâmetros da requisição incluem:')
     st.markdown('- __Produto:__ EPCBRENT (preço diário do Brent).')
     st.markdown('- __Data de início e fim:__ start_date e end_date.')
     st.markdown('- __Frequência:__ diária.')
