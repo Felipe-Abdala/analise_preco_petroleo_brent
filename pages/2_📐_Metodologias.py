@@ -30,6 +30,7 @@ aba1, aba2 = st.tabs(['Metodologia Machine Learning', 'Cenários Macroeconômico
 
 
 with aba1:
+    st.write('''#### Metodologia do modelo de Machine Learning''')
     coluna1, coluna2 = st.columns(2)
     with coluna1:
         st.info('''__1. Coleta de Dados__''')
