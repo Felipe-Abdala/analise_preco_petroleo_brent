@@ -46,5 +46,32 @@ with coluna1:
     - O petróleo é precificado em dólares. :blue[Flutuações no valor do dólar] em relação a outras moedas afetam o preço do petróleo globalmente.''')
 
 with coluna2:
-    st.info(''' ######  Tais observações são corroboradas pelo :blue[__Modelo de Machine Learning__] utilizado, com o indicativo de: ''')
-#    - A ''')
+    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se as seguintes:''')
+    st.write('''
+        O modelo Prophet, utilizado para prever o preço do petróleo Brent, é uma ferramenta poderosa que traduz as flutuações do mercado de petróleo em previsões precisas. Este modelo não apenas fornece uma previsão numérica, mas também reflete de maneira robusta os impactos econômicos globais que moldam esses preços ao longo do tempo. Vamos entender como as métricas do modelo e as suas previsões se alinham com os eventos que influenciam o mercado de petróleo:
+
+- Métricas de Avaliação do Modelo
+             
+As métricas de desempenho do Prophet revelam como o modelo captura de forma eficiente as tendências e as variações nos preços do petróleo:
+
+- MAE (Erro Absoluto Médio): 8.82 USD
+
+Em média, o modelo erra por apenas 8.82 USD nas suas previsões. Para um mercado altamente volátil como o do petróleo, esse erro é notavelmente baixo, o que demonstra a eficácia do modelo em prever com precisão, mesmo em horizontes temporais mais longos.
+
+- MSE (Erro Quadrático Médio): 101.52 USD²
+
+O MSE destaca a sensibilidade do modelo às grandes flutuações de preço. Durante eventos como crises econômicas ou mudanças políticas drásticas, o modelo consegue capturar essas variações intensas, embora penalize desvios mais pronunciados, como os vistos em eventos inesperados.
+
+- RMSE (Raiz do Erro Quadrático Médio): 10.08 USD
+
+O RMSE, derivado do MSE, nos dá uma visão clara da magnitude dos erros médios do modelo. Com um valor de 10.08 USD, o modelo é capaz de refletir com precisão os padrões gerais, mas ainda pode mostrar desvios durante momentos de instabilidade no mercado, como crises geopolíticas.
+
+- MAPE (Erro Percentual Absoluto Médio): 11.46%
+
+Essa métrica indica que as previsões do modelo estão, em média, a 11% do valor real. Em um mercado tão volátil quanto o do petróleo, esse índice é excelente, refletindo uma previsão de longo prazo bastante sólida, apesar das flutuações imprevisíveis.
+
+- Acuracidade: 88.54%
+
+Uma acuracidade de 88.54% demonstra que o modelo está acertando a maioria das suas previsões. Isso é particularmente relevante em um mercado de preços de petróleo, onde as condições externas podem mudar rapidamente e tornar a previsão desafiadora.    
+
+            ''')
