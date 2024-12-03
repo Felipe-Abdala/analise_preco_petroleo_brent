@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import plotly as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import requests
@@ -11,6 +12,9 @@ from prophet.diagnostics import cross_validation, performance_metrics
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from math import sqrt
 
+import plotly.express as px
+import streamlit as st
+from streamlit_plotly_events import plotly_events
 
 st.header('Modelo interativo e resultados')
 
@@ -44,7 +48,8 @@ with aba1:
     prediction_days = 30  # Altere para 30, 60 ou 90 conforme necessário
 
     # Coleta de dados da API
-    print("Coletando dados da API...")
+#    print("Coletando dados da API...")
+    st.write("Coletando dados da API...")
     url = "https://api.eia.gov/v2/petroleum/pri/spt/data/"
     params = {
         'api_key': api_key,
@@ -78,14 +83,15 @@ with aba1:
     raw_data['y'] = pd.to_numeric(raw_data['y'], errors='coerce')
     raw_data = raw_data.dropna()
 
-    print("Total de registros coletados:", len(raw_data))
-
+#    print("Total de registros coletados:", len(raw_data))
+    st.write("Total de registros coletados:", len(raw_data))
     # Separação de treino e teste
     train = raw_data.iloc[:-prediction_days]
     test = raw_data.iloc[-prediction_days:]
 
     # Treinamento do modelo
-    print("Treinando o modelo e gerando previsões...")
+#    print("Treinando o modelo e gerando previsões...")
+    st.write("Treinando o modelo e gerando previsões...")
     model = Prophet()
     model.fit(train)
 
@@ -94,7 +100,8 @@ with aba1:
     forecast_filtered = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(prediction_days)
 
     # Cálculo de métricas
-    print("Calculando métricas de teste...")
+#    print("Calculando métricas de teste...")
+    st.write("Calculando métricas de teste...")
     y_true = test['y'].values
     y_pred = forecast_filtered['yhat'].values
 
@@ -108,74 +115,92 @@ with aba1:
     mape = np.mean(np.abs((y_true - y_pred) / y_true)) * 100
     accuracy = 100 - mape
 
-    print("Métricas do Modelo:")
-    print(f"MAE: {mae:.2f}")
-    print(f"MSE: {mse:.2f}")
-    print(f"RMSE: {rmse:.2f}")
-    print(f"MAPE: {mape:.2f}%")
-    print(f"Accuracy: {accuracy:.2f}%")
+    #Prints
+#    print("Métricas do Modelo:")
+#    print(f"MAE: {mae:.2f}")
+#    print(f"MSE: {mse:.2f}")
+#    print(f"RMSE: {rmse:.2f}")
+#    print(f"MAPE: {mape:.2f}%")
+#    print(f"Accuracy: {accuracy:.2f}%")
+
+    st.write("Métricas do Modelo:")
+    st.write(f"MAE: {mae:.2f}")
+    st.write(f"MSE: {mse:.2f}")
+    st.write(f"RMSE: {rmse:.2f}")
+    st.write(f"MAPE: {mape:.2f}%")
+    st.write(f"Accuracy: {accuracy:.2f}%")
 
     # Validação cruzada
-    print("Realizando validação cruzada...")
+#    print("Realizando validação cruzada...")
+    st.write("Realizando validação cruzada...")
     df_cv = cross_validation(model, initial='730 days', period='180 days', horizon=f"{prediction_days} days")
     performance = performance_metrics(df_cv)
     # print("Métricas da Validação Cruzada:")
+    st.write("Métricas da Validação Cruzada:")
     # print(performance)
+    st.write(performance)
+
+
+
+
+
 
     # Visualização interativa
-    print("Plotando os resultados...")
-#    fig = go.Figure()
-#
-#    # Adicionar os dados históricos
-#    fig.add_trace(go.Scatter(
-#        x=raw_data['ds'], 
-#        y=raw_data['y'], 
-#        mode='lines', 
-#        name='Histórico',
-#        line=dict(color='blue', dash='solid')  # Linha sólida para histórico
-#    ))
-#
-#    # Adicionar previsão
-#    fig.add_trace(go.Scatter(
-#        x=forecast['ds'], 
-#        y=forecast['yhat'], 
-#        mode='lines', 
-#        name='Previsão', 
-#        line=dict(dash='dot', color='orange')  # Linha pontilhada para previsão
-#    ))
-#
-#    # Adicionar limites de confiança
-#    fig.add_trace(go.Scatter(
-#        x=forecast['ds'], 
-#        y=forecast['yhat_upper'], 
-#        mode='lines', 
-#        name='Limite Superior', 
-#        line=dict(color='rgba(204, 204, 204, 0.6)'),
-#        showlegend=False
-#    ))
-#    fig.add_trace(go.Scatter(
-#        x=forecast['ds'], 
-#        y=forecast['yhat_lower'], 
-#        mode='lines', 
-#        name='Limite Inferior', 
-#        line=dict(color='rgba(204, 204, 204, 0.6)'),
-#        fill='tonexty',
-#        fillcolor='rgba(204, 204, 204, 0.3)',
-#        showlegend=True
-#    ))
-#
-#    # Linha de início da previsão
-#    start_date = raw_data['ds'].iloc[-prediction_days]
-#    fig.add_vline(x=start_date, line=dict(color="red", dash="dash"), name="Início da Previsão")
-#
-#    fig.update_layout(
-#        title="Previsão do Preço do Petróleo Brent",
-#        xaxis_title="Data",
-#        yaxis_title="Preço Brent (USD)",
-#        legend_title="Legenda",
-#        template="plotly_white"
-#    )
-    #fig.show()
+#    print("Plotando os resultados...")
+    st.write("Plotando os resultados...")
+    fig = go.Figure()
+    #fig = px.Figure()
+
+    # Adicionar os dados históricos
+    fig.add_trace(go.Scatter(
+        x=raw_data['ds'], 
+        y=raw_data['y'], 
+        mode='lines', 
+        name='Histórico',
+        line=dict(color='blue', dash='solid')  # Linha sólida para histórico
+    ))
+
+    # Adicionar previsão
+    fig.add_trace(go.Scatter(
+        x=forecast['ds'], 
+        y=forecast['yhat'], 
+        mode='lines', 
+        name='Previsão', 
+        line=dict(dash='dot', color='orange')  # Linha pontilhada para previsão
+    ))
+
+    # Adicionar limites de confiança
+    fig.add_trace(go.Scatter(
+        x=forecast['ds'], 
+        y=forecast['yhat_upper'], 
+        mode='lines', 
+        name='Limite Superior', 
+        line=dict(color='rgba(204, 204, 204, 0.6)'),
+        showlegend=False
+    ))
+    fig.add_trace(go.Scatter(
+        x=forecast['ds'], 
+        y=forecast['yhat_lower'], 
+        mode='lines', 
+        name='Limite Inferior', 
+        line=dict(color='rgba(204, 204, 204, 0.6)'),
+        fill='tonexty',
+        fillcolor='rgba(204, 204, 204, 0.3)',
+        showlegend=True
+    ))
+
+    # Linha de início da previsão
+    start_date = raw_data['ds'].iloc[-prediction_days]
+    fig.add_vline(x=start_date, line=dict(color="red", dash="dash"), name="Início da Previsão")
+
+    fig.update_layout(
+        title="Previsão do Preço do Petróleo Brent",
+        xaxis_title="Data",
+        yaxis_title="Preço Brent (USD)",
+        legend_title="Legenda",
+        template="plotly_white"
+    )
+    plotly_events(fig)
 
 
 
