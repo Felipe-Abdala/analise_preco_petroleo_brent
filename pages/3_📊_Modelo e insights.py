@@ -49,7 +49,7 @@ with aba1:
     #Modelo
     # Configurações iniciais
     #st.status('''### :blue[__O Modelo está em execução__]: tempo estimado de 3 minutos''')
-    st.warning('''### :blue[__A execução do modelo tem o tempo estimado em 5 minutos''')
+    st.warning(''' A execução do modelo tem o :blue[__tempo estimado em 5 minutos__]''')
     api_key = "kjZJakW4UuR2fvPQPEoC5c1Ngyvfj96lnYUj9rcJ"
     start_date = "1987-05-25"
     end_date = "2024-11-30"
