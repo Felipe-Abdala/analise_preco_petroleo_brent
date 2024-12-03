@@ -17,7 +17,7 @@ st.sidebar.write('''Os :blue[__integrantes__] e suas respectivas :blue[__RM__]:'
 st.sidebar.write('''- Cheila Betina Schilling dos Santos: RM 355693
 - Felipe David Abdala: RM 355751
 - Lucas Coimbra Rizzo: RM354448''')
-st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59")
+st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59 | Imagem disponível em: vide bibliografia")
 
 # Título Página
 st.title('Conclusão')
