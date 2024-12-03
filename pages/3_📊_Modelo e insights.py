@@ -16,25 +16,10 @@ st.header('Modelo interativo e resultados')
 
 # SideBar e Filtros
 st.sidebar.title('Filtros')
-#todos_anos = st.sidebar.checkbox('Dados de todo o período', value = True)
-#if todos_anos:
-#    ano = ''
-#else:
-#    ano = st.sidebar.slider('Ano', 1987, 2024)
-
-# Entrada de data pelo usuário
-#with st.sidebar.container():
-#    min_date = date(1987, 5, 25)
-#    max_date = date(2024, 11, 30)
-#    end_date = st.date_input(
-#        "**Escolha a data de previsão:**", 
-#        min_value=min_date, 
-#        max_value=max_date,
-#        value=min_date,
-#    )
 data_minima = date(1987, 5, 25)
-data_maxima = date(2024, 11, 30)
-st.sidebar.date_input("Escolha o :blue[__intervalo de data__] para treinar o modelo:",(data_minima,data_maxima), min_value=data_minima, max_value=data_maxima, format="DD/MM/YYYY")
+data_maxima_modelo = date(2024, 11, 30)
+data_maxima_previsao = date(2025, 2, 28)
+st.sidebar.date_input("Escolha a :blue[__data__] para treinar o modelo:",data_maxima_modelo, min_value=data_maxima_modelo, max_value=data_maxima_previsao, format="DD/MM/YYYY")
 
 ## Visualização no Streamlit
 # Abas ('Tabs')
