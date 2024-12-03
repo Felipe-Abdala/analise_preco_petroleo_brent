@@ -27,6 +27,8 @@ st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-
 st.header('Análise Preço Petróleo *Brent*')
 st.markdown(' Pós-Tech FIAP Data Analytics | :blue[Tech-challenge Fase 4] | Grupo 59')
 
+#st.caption("O mercado de petróleo e seus derivados traz consigo voluptuosas cifras e com enfoque em sua :blue[_produção_] e :blue[_comercialização_] que o presente trabalho se debruça.")
+
 ## Visualização no Streamlit
 aba1, aba2 = st.tabs(['Introdução','Objetivos'])
 with aba1:
