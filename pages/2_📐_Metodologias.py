@@ -25,7 +25,7 @@ st.header('Metodologia')
 
 ## Visualização no Streamlit
 # Abas ('Tabs')
-aba1, aba2 = st.tabs(['Metodologia Machine Learning', 'Cenários Macroeconômicos'])
+aba1, aba2, aba3 = st.tabs(['Metodologia Machine Learning', 'Cenários Macroeconômicos', 'Plano para deploy'])
 # aba1
 
 
@@ -99,3 +99,40 @@ with aba2:
         st.write('''Transição energética: A busca por alternativas renováveis deve reduzir gradualmente a demanda global por petróleo.
         - Geopolítica e ESG: Conflitos em regiões produtoras e políticas ambientais de grandes economias continuarão a influenciar o mercado.
         - Influência da China e da Índia: As economias emergentes, particularmente China e Índia, continuarão sendo grandes impulsionadores da demanda de curto e médio prazo.''')
+
+
+with aba3:
+    st.write('''#### Plano para deploy''')
+    coluna1, coluna2 = st.columns(2)
+    with coluna1:
+        st.write('''###### Localmente''')
+        st.info(''' :blue[__1. Desenvolver um script para subir no Streamlit__]: ''')
+        st.write('''- Via VS Code desenvolver o script a ser disponibilizado no Streamlit''')
+        st.info(''' :blue[__2. Criação do espaço virtual no VS Code__]: ''')
+        st.write('''- Com o terminal do VS Code aberto, rodar o seguinte comando:
+    - python -m venv venv''')
+        st.info(''' :blue[__3. Ativação da pasta “Scripts”__]: ''')
+        st.write('''- Ainda no terminal do VS Code aberto, rodar os seguintes comandos:
+    - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    - venv\Scripts\ activate''')
+        st.info(''' :blue[__4. Inicializando o Streamlit__]: ''')
+        st.write('''- E por fim, rodar o comando:
+    - streamlit run arquivo_script.py''')
+    with coluna2:
+        st.write('''###### Em produção (deploy)''')
+        st.info(''' :blue[__1. Desenvolver um script para subir no Streamlit__]: ''')
+        st.write('''- Via VS Code desenvolver o script a ser disponibilizado no Streamlit''')
+        st.info(''' :blue[__2. Versione o código com Git (via GitHub)__]:''')
+        st.write('''- Fazer o upload no GitHub do(a):
+    - Script .py; e se aplicável
+    - Pasta "pages":
+        - Para armazenar as diferentes páginas do projeto.
+    - Pasta ".streamlit":
+        - Com o arquivo config.toml, que contem as configurações do design das páginas.
+    - Arquivo "requirements.txt"
+        - Com o nome das bibliotecas e suas respectivas versões a serem executadas em produção.''')
+        st.info(''' :blue[__3. Configurar e executar o ambiente de Deploy (Streamlit)__]: ''')
+        st.write('''- Via site do Streamlit Cloud "https://streamlit.io/"
+    - Conectar via opção "Continue with GitHub";
+    - Selecionar o repositório e o script.py;
+    - Configurar versão do python e nome da página ainda na interface do Streamlit.''')
