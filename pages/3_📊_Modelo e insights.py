@@ -42,18 +42,28 @@ aba1, aba2 = st.tabs(['Modelo', 'Resultados e insights'])
 
 # início - Aba 1 - Corpo da página
 with aba1:
-    st.info('''Digite abaixo a quantidade de dias, entre :blue[1 e 90], a fim de que o modelo preveja a cotação do preço do barril do Petróleo Brent.''')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.info('''Digite ao lado a quantidade de dias, entre :blue[1 e 90], a fim de que o modelo preveja a cotação do preço do barril do Petróleo Brent.''')
 
-    #Parâmetro
-    prediction_days = st.number_input("", value=1, placeholder="Digite um nº inteiro entre 1 e 90 para Previsão do Modelo e tecle ENTER...", min_value=1, max_value=90, step = 1)
-    
+    with col2:
+        #Parâmetro
+        prediction_days = st.number_input("", value=1, placeholder="Digite um nº inteiro entre 1 e 90 para Previsão do Modelo e tecle ENTER...", min_value=1, max_value=90, step = 1)
+        
     st.divider()
     st.write('''#### Modelo de Machine Learning''')
 
     #Modelo
     # Configurações iniciais
     #st.status('''### :blue[__O Modelo está em execução__]: tempo estimado de 3 minutos''')
-    st.warning(''' A execução do modelo tem o :blue[__tempo estimado em 5 minutos__]. Aguarde até a mensagem de :green[__"Concluído"__] aparecer no final da página. ''')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.warning(''' A execução do modelo tem o :blue[__tempo estimado em 5 minutos__].''')
+    with col2:
+        st.warning(''' Aguarde a mensagem de :green[__"Concluído"__] aparecer no final da página. ''')
+    with col3:
+        st.warning(''' Mantenha-se nessa página, para ter o :red[__histórico do Modelo__] que rodou.''')
+
     api_key = "kjZJakW4UuR2fvPQPEoC5c1Ngyvfj96lnYUj9rcJ"
     start_date = "1987-05-25"
     end_date = "2024-11-30"
@@ -262,7 +272,14 @@ st.download_button(
 
 # início - Aba 2 - Corpo da página
 with aba2:
-    st.warning(''' A execução do modelo, na aba anterior, tem o :blue[__tempo estimado em 5 minutos__]. Aguarde até a mensagem de :green[__"Concluído"__] aparecer no final da página, para utilizar essa aba __"Resultados e Insights"__. ''')
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.warning(''' A execução do modelo tem o :blue[__tempo estimado em 5 minutos__].''')
+    with col2:
+        st.warning(''' Aguarde a mensagem de :green[__"Concluído"__] aparecer no final da página. ''')
+    with col3:
+        st.warning(''' Mantenha-se nessa página, para ter o :red[__histórico do Modelo__] que rodou.''')
+    st.info("No Dashboard do Looker, selecione o evento histórico para visualizar o *insight* a partir de um Cenário Histórico-Econômico.")
     looker_studio_url = "https://lookerstudio.google.com/embed/reporting/d572c779-7cea-49cb-b82c-1b2d74d2c465/page/SaKXE"
     components.iframe(looker_studio_url, width=800, height=600)
 
