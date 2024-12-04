@@ -59,7 +59,7 @@ with coluna1:
     - O petróleo é precificado em dólares. :blue[Flutuações no valor do dólar] em relação a outras moedas afetam o preço do petróleo globalmente.''')
 
 with coluna2:
-    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se as seguintes:''')
+    st.info('''######  A partir da análise estatística, via :blue[__Modelo Prophet__] de Machine Learning, conclui-se que:''')
 
     st.write(''' 1. __Modelo Prophet:__
     - O modelo Prophet, utilizado para prever o preço do petróleo Brent, é uma ferramenta poderosa que traduz as flutuações do mercado de petróleo em previsões precisas. Este modelo não apenas fornece uma previsão numérica, mas também reflete de maneira robusta os impactos econômicos globais que moldam esses preços ao longo do tempo. Vamos entender como as métricas do modelo e as suas previsões se alinham com os eventos que influenciam o mercado de petróleo:
