@@ -37,7 +37,7 @@ st.title('Conclusão')
 st.info('As conclusões expostas nessa seção referem-se à execução do modelo Prophet de machine learning, vide página __"Modelo e Insights"__, a partir da qual seus valores foram projetados para __30 dias__ e expostos nessa seção de maneira .')
 coluna1, coluna2 = st.columns(2)
 with coluna1:
-    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se as seguintes:''')
+    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se:''')
     st.write('''1. __Oferta e Demanda Global:__
     - A :blue[demanda global por petróleo] é altamente sensível ao crescimento econômico, especialmente nas economias avançadas e emergentes.
     - A oferta é influenciada pela :blue[capacidade de produção] dos principais países produtores, como Arábia Saudita, Rússia, Estados Unidos, e pela atuação da OPEP (Organização dos Países Exportadores de Petróleo).
