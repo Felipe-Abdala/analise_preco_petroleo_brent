@@ -1,14 +1,28 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import plotly as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import pandas as pd
 import numpy as np
+import plotly.express as px
+import streamlit as st
+import time
+import datetime
+from datetime import date, timedelta
 from prophet import Prophet
 from prophet.diagnostics import cross_validation, performance_metrics
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from math import sqrt
+from streamlit_plotly_events import plotly_events
+from IPython.display import display
+
+
+
+
+#Configuração gerais das páginas
+st.set_page_config(page_title='Pós-Tech FIAP | Tech Challenge Fase 4 | Grupo 59', page_icon=":chart_with_upwards_trend:", layout= 'wide')
 
 
 # SideBar
