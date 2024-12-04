@@ -161,7 +161,8 @@ with aba1:
     # Validação cruzada
     df_cv = cross_validation(model, initial='730 days', period='180 days', horizon=f"{prediction_days} days")
     performance = performance_metrics(df_cv)
-    st.info('''##### Métricas da Validação Cruzada''')
+    st.info('''##### Métricas da Validação Cruzada e da previsão dos dias selecionados''')
+    st.write("###### Tabela com as métricas da validação cruzada")
     st.write(performance)
 
     # Exibindo a tabela diretamente
@@ -178,7 +179,7 @@ with aba1:
 
     # Exibindo a tabela
     display(forecast_table)
-    st.write("#### Tabela com previsão dos dias selecionados com os limites")
+    st.write("###### Tabela com previsão dos dias selecionados com os limites")
     st.write(forecast_table)
 
 
