@@ -143,18 +143,23 @@ with aba1:
 
 
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         col1.write(f'''##### :blue[__Total registros__]
                 {len(raw_data)}''')
     with col2:
         start_date_dt = datetime.datetime.strptime(start_date, "%Y-%m-%d").strftime("%d/%m/%Y")
-        col2.write(f'''##### :blue[__Data início: Modelo__]
+        col2.write(f'''##### :blue[__Data início: histórico__]
                 {start_date_dt}''')
     with col3:
         end_date_dt = datetime.datetime.strptime(end_date, "%Y-%m-%d").strftime("%d/%m/%Y")
-        col3.write(f'''##### :blue[__Data fim: Modelo__]          
+        col3.write(f'''##### :blue[__Data fim: histórico__]          
                 {end_date_dt}''')
+    with col4:
+        data_a_prever = datetime.datetime.strptime(end_date, "%Y-%m-%d") + timedelta(days=prediction_days)
+        data_a_prever_dt = data_a_prever.strftime("%d/%m/%Y")
+        col4.write(f'''##### :blue[__Data previsão__]          
+                {data_a_prever_dt}''')
     st.divider()
 
     # Validação cruzada
