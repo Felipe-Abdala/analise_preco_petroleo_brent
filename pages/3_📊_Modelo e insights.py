@@ -16,8 +16,9 @@ from prophet.diagnostics import cross_validation, performance_metrics
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from math import sqrt
 from streamlit_plotly_events import plotly_events
+from IPython.display import display
 
-
+#8.26.0
 #Configuração gerais das páginas
 st.set_page_config(page_title='Pós-Tech FIAP | Tech Challenge Fase 4 | Grupo 59', page_icon=":chart_with_upwards_trend:", layout= 'wide')
 
@@ -163,6 +164,24 @@ with aba1:
     st.info('''##### Métricas da Validação Cruzada''')
     st.write(performance)
 
+    # Exibindo a tabela diretamente
+    # Filtrar a previsão para os últimos prediction_days
+    forecast_table = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(prediction_days)
+
+    # Renomear colunas para algo mais amigável
+    forecast_table = forecast_table.rename(columns={
+        'ds': 'Data',
+        'yhat': 'Previsão',
+        'yhat_lower': 'Limite Inferior',
+        'yhat_upper': 'Limite Superior'
+    })
+
+    # Exibindo a tabela
+    display(forecast_table)
+    st.write("#### Tabela com previsão dos dias selecionados com os limites")
+    st.write(forecast_table)
+
+
     # Visualização interativa
     fig = go.Figure()
 
@@ -222,6 +241,17 @@ with aba1:
 
 
 st.success('Modelo executado com sucesso!', icon = "✅")
+
+#SALVAR EM CSV
+data_as_csv = forecast_table.to_csv(index=False).encode("utf-8")
+
+st.download_button(
+    "Download base de dados como CSV", 
+    data_as_csv, 
+    "Modelo_ML_Brent.csv",
+    "text/csv",
+    key="download-tools-csv",
+)
 
 # Fim - Aba 1 - Corpo da página
 
