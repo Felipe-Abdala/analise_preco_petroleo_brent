@@ -19,6 +19,7 @@ from streamlit_plotly_events import plotly_events
 from IPython.display import display
 
 
+
 #Configuração gerais das páginas
 st.set_page_config(page_title='Pós-Tech FIAP | Tech Challenge Fase 4 | Grupo 59', page_icon=":chart_with_upwards_trend:", layout= 'wide')
 
@@ -29,36 +30,56 @@ st.sidebar.write('''Os :blue[__integrantes__] e suas respectivas :blue[__RM__]:'
 st.sidebar.write('''- Cheila Betina Schilling dos Santos: RM 355693
 - Felipe David Abdala: RM 355751
 - Lucas Coimbra Rizzo: RM354448''')
-st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59")
+st.sidebar.image("https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png", caption="Pós-Tech Data Analytics | Tech Challenge Fase 4 | Grupo 59 | Imagem disponível em: vide bibliografia")
 
 # Título Página
-st.title('Referências bibliográficas')
-st.info('''__GitHub: repositório com o modelo e configurações Streamlit__''')
-st.write('''- Disponível em: https://github.com/Felipe-Abdala/analise_preco_petroleo_brent/tree/main''')
+st.title('Conclusão')
+st.info('As conclusões expostas nessa seção referem-se à execução do modelo Prophet de machine learning, vide página __"Modelo e Insights"__, a partir da qual seus valores foram projetados para __30 dias__ e expostos nessa seção de maneira .')
+coluna1, coluna2 = st.columns(2)
+with coluna1:
+    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se as seguintes:''')
+    st.write('''1. __Oferta e Demanda Global:__
+    - A :blue[demanda global por petróleo] é altamente sensível ao crescimento econômico, especialmente nas economias avançadas e emergentes.
+    - A oferta é influenciada pela :blue[capacidade de produção] dos principais países produtores, como Arábia Saudita, Rússia, Estados Unidos, e pela atuação da OPEP (Organização dos Países Exportadores de Petróleo).
+2. __Geopolítica e Conflitos:__
+    - :blue[Instabilidades políticas] e conflitos em regiões produtoras, como o Oriente Médio, têm impacto direto nos preços do petróleo. Exemplos:
+        - Invasão do Kuwait pelo Iraque em 1990 (Guerra do Golfo).
+        - Invasão do Iraque pelos EUA em 2003.
+        - Sanções ao Irã devido ao programa nuclear.
+3. __Decisões da OPEP:__
+    - A OPEP atua para :blue[regular a produção de petróleo] entre seus membros, tentando estabilizar o mercado. Cortes ou aumentos na produção têm impacto direto nos preços.
+4. __Avanços Tecnológicos:__
+    - O :blue[desenvolvimento de novas tecnologias de extração], como o fracking e a exploração em águas profundas, alterou a dinâmica da oferta global.
+    - A :blue[transição energética] para fontes renováveis também começa a exercer influência sobre a demanda futura de petróleo.
+5. __Choques Econômicos:__
+    - :blue[Crises econômicas globais] reduzem a demanda por petróleo. Exemplo:
+    - A :blue[crise financeira] de 2008 reduziu drasticamente o preço do petróleo.
+    - A :blue[pandemia de COVID-19] em 2020 levou a uma queda histórica na demanda, com os preços até ficando negativos em algumas circunstâncias.
+6. __Taxa de Câmbio:__
+    - O petróleo é precificado em dólares. :blue[Flutuações no valor do dólar] em relação a outras moedas afetam o preço do petróleo globalmente.''')
 
-st.info('''__Petróleo: eventos econômicos, históricos e políticos__''')
-st.write('''- IPEA |  Disponível em: https://www.ipea.gov.br/desafios/index.php?option=com_content&view=article&id=2083:catid=28&Itemid=23 | Data de acesso: 24/11/2024
-- Petróleo Brent | Disponível em: https://guru.com.vc/glossario/brent/ | Data de acesso: 24/11/2024''')
+with coluna2:
+    st.info('''######  Dentre as principais :blue[__causas econômicas__] para a Variação do Preço do Petróleo destacam-se as seguintes:''')
 
-st.info('''__Bibliotecas e Ferramentas__''')
-st.write('''- Prophet (Ferramenta de Previsão) | Disponível em: https://facebook.github.io/prophet/ | Data de acesso: 22/11/2024
-- Scikit-learn (Machine Learning e Métricas) | Disponível em: https://scikit-learn.org/ | Data de acesso: 22/11/2024
-- Plotly (Visualizações Interativas) | Disponível em: https://plotly.com/ | Data de acesso: 22/11/2024''')
+    st.write(''' 1. __Modelo Prophet:__
+    - O modelo Prophet, utilizado para prever o preço do petróleo Brent, é uma ferramenta poderosa que traduz as flutuações do mercado de petróleo em previsões precisas. Este modelo não apenas fornece uma previsão numérica, mas também reflete de maneira robusta os impactos econômicos globais que moldam esses preços ao longo do tempo. Vamos entender como as métricas do modelo e as suas previsões se alinham com os eventos que influenciam o mercado de petróleo:
 
-st.info('''__Fonte de Dados: API da EIA (Energy Information Administration)__''')
-st.write('''- Disponível em: https://www.eia.gov/opendata/ | Data de acesso: 22/11/2024''')
+2. __Métricas de Avaliação do Modelo:__
+             
+    As métricas de desempenho do Prophet revelam como o modelo captura de forma eficiente as tendências e as variações nos preços do petróleo: 
+                
+    - Em média, o modelo erra por apenas :blue[8.82 USD] nas suas previsões. Para um mercado altamente volátil como o do petróleo, esse erro é notavelmente baixo, o que demonstra a eficácia do modelo em prever com precisão, mesmo em horizontes temporais mais longos.
+        - :blue[__MSE (Erro Quadrático Médio):__] __101.52 USD²__
 
-
-st.info('''__Fonte de imagens__''')
-st.write('''-  Disponível em: https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png | Data de acesso: 22/11/2024
-- Disponível em: https://media.licdn.com/dms/image/v2/D4D12AQHhGT2iS1QlLQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1670405199782?e=2147483647&v=beta&t=2Um0S28DuWFwpyxV-ybrjCURUJu2yueWKdR9HSuiuO0 | Data de acesso: 22/11/2024
-- Disponível em: https://images.pexels.com/photos/1716008/pexels-photo-1716008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 | Data de acesso: 22/11/2024''')
-st.info('''__Conceitos Estatísticos e Métricas: Erro Absoluto Médio (MAE), Erro Percentual Absoluto Médio (MAPE), Raiz do Erro Quadrático Médio (RMSE)__''')
-st.write('''- Disponível em: https://otexts.com/fpp2/ | Data de acesso: 24/11/2024
-- Disponível em: https://blog.streamlit.io/introducing-multipage-apps/#tips-and-tricks | Data de acesso: 24/11/2024
-- Disponível em: https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/ | Data de acesso: 22/11/2024
-- Disponível em: https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax | Data de acesso: 29/11/2024
-- Disponível em: https://impactospositivos.com/wp-content/uploads/2024/03/FIAP-Apoiador.png | Data de acesso: 24/11/2024 
-- Disponível em: https://images.pexels.com/photos/1716008/pexels-photo-1716008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr | Data de acesso: 24/11/2024 ''')
+    - O MSE destaca a sensibilidade do modelo às grandes flutuações de preço. Durante eventos como crises econômicas ou mudanças políticas drásticas, o modelo consegue capturar essas variações intensas, embora penalize desvios mais pronunciados, como os vistos em eventos inesperados.
+        - :blue[__RMSE (Raiz do Erro Quadrático Médio):__] __10.08 USD__
 
 
+    - O RMSE, derivado do MSE, nos dá uma visão clara da magnitude dos erros médios do modelo. Com um valor de :blue[10.08 USD], o modelo é capaz de refletir com precisão os padrões gerais, mas ainda pode mostrar desvios durante momentos de instabilidade no mercado, como crises geopolíticas.
+        - :blue[__MAPE (Erro Percentual Absoluto Médio):__] __11.46%__
+
+    - Essa métrica indica que as previsões do modelo estão, em média, a :blue[11% do valor real]. Em um mercado tão volátil quanto o do petróleo, esse índice é excelente, refletindo uma previsão de longo prazo bastante sólida, apesar das flutuações imprevisíveis.
+        - :blue[__Acuracidade:__] __88.54%__
+
+    - Uma acuracidade de :blue[88.54%] demonstra que o modelo está acertando a maioria das suas previsões. Isso é particularmente relevante em um mercado de preços de petróleo, onde as condições externas podem mudar rapidamente e tornar a previsão desafiadora.
+            ''')
