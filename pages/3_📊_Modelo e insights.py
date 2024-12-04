@@ -18,7 +18,6 @@ from math import sqrt
 from streamlit_plotly_events import plotly_events
 from IPython.display import display
 
-#8.26.0
 #Configuração gerais das páginas
 st.set_page_config(page_title='Pós-Tech FIAP | Tech Challenge Fase 4 | Grupo 59', page_icon=":chart_with_upwards_trend:", layout= 'wide')
 
