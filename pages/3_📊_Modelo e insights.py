@@ -262,6 +262,7 @@ st.download_button(
 
 # início - Aba 2 - Corpo da página
 with aba2:
+    st.warning(''' A execução do modelo, na aba anterior, tem o :blue[__tempo estimado em 5 minutos__]. Aguarde até a mensagem de :green[__"Concluído"__] aparecer no final da página, para utilizar essa aba __"Resultados e Insights"__. ''')
     looker_studio_url = "https://lookerstudio.google.com/embed/reporting/d572c779-7cea-49cb-b82c-1b2d74d2c465/page/SaKXE"
     components.iframe(looker_studio_url, width=800, height=600)
 
